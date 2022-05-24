@@ -48,14 +48,13 @@ Console.ReadLine();
 
 static void PrintRandomColourText(string text, Random random)
 {
-    var colourValues = Enum.GetValues(typeof(ConsoleColor));
-
-    ConsoleColor randomColour = (ConsoleColor)colourValues.GetValue(random.Next(colourValues.Length));
-
-    while (randomColour == Console.BackgroundColor)
-    {
-        randomColour = (ConsoleColor)colourValues.GetValue(random.Next(colourValues.Length));
-    }
+    // Get a random colour except current background colour
+    var backgroundColour = Console.BackgroundColor;
+    var colourValues = Enum.GetValues(typeof(ConsoleColor))
+        .Cast<ConsoleColor>()
+        .Except(new ConsoleColor[] { backgroundColour });
+    
+    var randomColour = colourValues.ElementAt(random.Next(colourValues.Count()));
 
     Console.ForegroundColor = randomColour;
     Console.WriteLine(text);
