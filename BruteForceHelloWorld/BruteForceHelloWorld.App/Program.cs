@@ -24,13 +24,6 @@ while (answer != soloution)
     }
     else
     {
-        var upperCaseVariant = char.ToUpperInvariant(soloution[currentLetterIndex]);
-
-        if (currentLetter == upperCaseVariant)
-        {
-            currentLetter = upperCaseVariant;
-        }
-
         possibleCharacters = allPossibleCharacters;
         answer += currentLetter;
 
