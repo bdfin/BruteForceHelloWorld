@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 
 const string allPossibleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz! ";
+const string soloution = "Hello World!";
 
 string possibleCharacters = allPossibleCharacters;
-string soloution = "Hello World!";
 string answer = "";
 int currentLetterIndex = 0;
 int totalGuesses = 0;
