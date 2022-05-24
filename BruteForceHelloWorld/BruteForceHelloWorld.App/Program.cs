@@ -20,7 +20,7 @@ while (answer != soloution)
     {
         possibleCharacters.Replace($"{currentLetter}", "");
 
-        Console.WriteLine(answer + currentLetter);
+        PrintRandomColourText(answer + currentLetter, random);
     }
     else
     {
@@ -46,6 +46,22 @@ stopWatch.Stop();
 
 Console.WriteLine(Environment.NewLine);
 Console.WriteLine($"Time taken: {FormatStopWatchTime(stopWatch.Elapsed)}");
+
+static void PrintRandomColourText(string text, Random random)
+{
+    var colourValues = Enum.GetValues(typeof(ConsoleColor));
+
+    ConsoleColor randomColour = (ConsoleColor)colourValues.GetValue(random.Next(colourValues.Length));
+
+    while (randomColour == Console.BackgroundColor)
+    {
+        randomColour = (ConsoleColor)colourValues.GetValue(random.Next(colourValues.Length));
+    }
+
+    Console.ForegroundColor = randomColour;
+    Console.WriteLine(text);
+    Console.ResetColor();
+}
 
 static string FormatStopWatchTime(TimeSpan elapsedTime)
 {
