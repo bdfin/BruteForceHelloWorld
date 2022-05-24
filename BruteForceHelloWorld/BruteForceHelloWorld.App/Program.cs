@@ -6,6 +6,7 @@ string possibleCharacters = allPossibleCharacters;
 string soloution = "Hello World!";
 string answer = "";
 int currentLetterIndex = 0;
+int totalGuesses = 0;
 
 var random = new Random();
 var stopWatch = new Stopwatch();
@@ -32,13 +33,17 @@ while (answer != soloution)
         currentLetterIndex++;       
     }
 
+    totalGuesses++;
+
     Thread.Sleep(5);
 }
 
 stopWatch.Stop();
 
 Console.WriteLine(Environment.NewLine);
+Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"Time taken: {FormatStopWatchTime(stopWatch.Elapsed)}");
+Console.WriteLine($"Total guesses: {totalGuesses}");
 Console.ReadLine();
 
 static void PrintRandomColourText(string text, Random random)
