@@ -46,6 +46,7 @@ stopWatch.Stop();
 
 Console.WriteLine(Environment.NewLine);
 Console.WriteLine($"Time taken: {FormatStopWatchTime(stopWatch.Elapsed)}");
+Console.ReadLine();
 
 static void PrintRandomColourText(string text, Random random)
 {
