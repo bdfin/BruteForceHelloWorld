@@ -19,7 +19,7 @@ while (answer != soloution)
 
     if (currentLetter != soloution[currentLetterIndex])
     {
-        possibleCharacters.Replace($"{currentLetter}", "");
+        _ = possibleCharacters.Replace($"{currentLetter}", "");
 
         PrintRandomColourText(answer + currentLetter, random);
     }
